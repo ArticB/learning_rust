@@ -3,13 +3,23 @@
 // const GLOBAL_CONSTANT:u32 = 5;
 
 fn main() {
-    let x = with_return(5);
-    println!("{}", x);
+    if_else();
 }
 
-fn with_return(x: u32) -> u32 {
-    x+1
+fn if_else() {
+    let number = 3;
+    if number < 5 {
+        println!("{}", number != 5);
+        println!("{}", number == 5);
+    } else {
+        println!("condition was false");
+    }
 }
+
+
+// fn with_return(x: u32) -> u32 {
+//     x+1
+// }
 
 // fn std_input_output() {
 //     let mut number = String::new();
