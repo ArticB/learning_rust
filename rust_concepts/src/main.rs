@@ -3,19 +3,41 @@
 // const GLOBAL_CONSTANT:u32 = 5;
 
 fn main() {
-    loop_function();
+    loop_with_label();
 }
 
-fn loop_function() {
-    let mut counter = 0;
-    let result = loop {
-        counter += 1;
-        if counter == 10 {
-            break counter *2;
+fn loop_with_label() {
+    let mut count = 0;
+    'counting_up: loop {
+        println!("Count = {count}");
+        let mut remaining = 10;
+
+        loop {
+            println!("remaining = {remaining}");
+            if remaining == 9 {
+                break;
+            }
+
+            if count == 2 {
+                break 'counting_up;
+            }
+
+            remaining -= 1;
         }
-    };
-    println!("{result}");
+        count += 1;
+    }
 }
+
+// fn loop_function() {
+//     let mut counter = 0;
+//     let result = loop {
+//         counter += 1;
+//         if counter == 10 {
+//             break counter *2;
+//         }
+//     };
+//     println!("{result}");
+// }
 
 // fn if_else() {
 //     let number = 3;
