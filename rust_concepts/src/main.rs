@@ -3,18 +3,29 @@
 // const GLOBAL_CONSTANT:u32 = 5;
 
 fn main() {
-    if_else();
+    loop_function();
 }
 
-fn if_else() {
-    let number = 3;
-    if number < 5 {
-        println!("{}", number != 5);
-        println!("{}", number == 5);
-    } else {
-        println!("condition was false");
-    }
+fn loop_function() {
+    let mut counter = 0;
+    let result = loop {
+        counter += 1;
+        if counter == 10 {
+            break counter *2;
+        }
+    };
+    println!("{result}");
 }
+
+// fn if_else() {
+//     let number = 3;
+//     if number < 5 {
+//         println!("{}", number != 5);
+//         println!("{}", number == 5);
+//     } else {
+//         println!("condition was false");
+//     }
+// }
 
 
 // fn with_return(x: u32) -> u32 {
