@@ -1,23 +1,28 @@
-use std::io;
+// use std::io;
 
 // const GLOBAL_CONSTANT:u32 = 5;
 
 fn main() {
-    std_input_output()
+    let x = with_return(5);
+    println!("{}", x);
 }
 
-fn std_input_output() {
-    let mut number = String::new();
-
-    io::stdin()
-        .read_line(&mut number)
-        .expect("Failed to read line");
-    let number: usize = number
-        .trim()
-        .parse()
-        .expect("Not a number");
-    println!("your number is {number}");
+fn with_return(x: u32) -> u32 {
+    x+1
 }
+
+// fn std_input_output() {
+//     let mut number = String::new();
+
+//     io::stdin()
+//         .read_line(&mut number)
+//         .expect("Failed to read line");
+//     let number: usize = number
+//         .trim()
+//         .parse()
+//         .expect("Not a number");
+//     println!("your number is {number}");
+// }
 
 // fn data_types() {
     
