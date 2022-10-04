@@ -3,13 +3,44 @@
 // const GLOBAL_CONSTANT:u32 = 5;
 
 fn main() {
-    let reference = dangling_reference();
+    let mut s = String::from("hello world!");
+    
+    let word = second_word(&s);
+
+    println!("{word}");
+    s.clear();
 }
 
-fn dangling_reference() -> &String {
-    let s = String::from("hello");
-    &s
+/**
+ * write a function that takes a string of words separated 
+ * by spaces and returns the first word it finds in that string. 
+ * If the function doesn’t find a space in the string, the whole 
+ * string must be one word, so the entire string should be returned
+ */
+// fn first_word(s: &String) -> usize {
+//     let bytes = s.as_bytes();
+//     for (i, &item) in bytes.iter().enumerate() {
+//         if item == b' ' {
+//             return i;
+//         }
+//     }
+//     s.len()
+// }
+
+fn second_word(s: &str) -> &str {
+    let bytes = s.as_bytes();
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
+    &s[..]
 }
+
+// fn dangling_reference() -> &String {
+//     let s = String::from("hello");
+//     &s
+// }
 
 // fn loop_with_label() {
 //     let mut count = 0;
