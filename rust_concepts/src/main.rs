@@ -3,30 +3,35 @@
 // const GLOBAL_CONSTANT:u32 = 5;
 
 fn main() {
-    loop_with_label();
+    let reference = dangling_reference();
 }
 
-fn loop_with_label() {
-    let mut count = 0;
-    'counting_up: loop {
-        println!("Count = {count}");
-        let mut remaining = 10;
-
-        loop {
-            println!("remaining = {remaining}");
-            if remaining == 9 {
-                break;
-            }
-
-            if count == 2 {
-                break 'counting_up;
-            }
-
-            remaining -= 1;
-        }
-        count += 1;
-    }
+fn dangling_reference() -> &String {
+    let s = String::from("hello");
+    &s
 }
+
+// fn loop_with_label() {
+//     let mut count = 0;
+//     'counting_up: loop {
+//         println!("Count = {count}");
+//         let mut remaining = 10;
+
+//         loop {
+//             println!("remaining = {remaining}");
+//             if remaining == 9 {
+//                 break;
+//             }
+
+//             if count == 2 {
+//                 break 'counting_up;
+//             }
+
+//             remaining -= 1;
+//         }
+//         count += 1;
+//     }
+// }
 
 // fn loop_function() {
 //     let mut counter = 0;
